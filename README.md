@@ -16,7 +16,7 @@ it build recently using Soap
 - [sakila-data.txt](https://github.com/aahmedYassin/sakila-db/files/11092381/sakila-data.txt)
 - [sakila-schema.txt](https://github.com/aahmedYassin/sakila-db/files/11092382/sakila-schema.txt)
 ##  Technologies
-
+- ORM
 - Maven
 - Tomcat(apache-maven-3.8.6)
 - JAX-WS Metro
