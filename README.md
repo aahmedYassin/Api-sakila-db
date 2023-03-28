@@ -4,7 +4,7 @@
 SOAP Sakila Database Web Service
 
 ### Description
-- This API allow user to access and retrieve data from many categories such as actor,film and others
+- This API allow  to access and retrieve data from many categories such as actor,film and others
 it build recently using Soap
 
 # Database
