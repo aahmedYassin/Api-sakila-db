@@ -10,11 +10,10 @@ it build recently using Soap
 # Database
 - Execute the sakila-schema.sql script to create the database structure
 - execute the sakila-data.sql script to populate the database structure, by using the following commands:
-- change .txt to .sql
+- change sakila-data.txt,sakila-schema.txt to .sql
 - mysql> SOURCE C:/temp/sakila-db/sakila-schema.sql;
 - mysql> SOURCE C:/temp/sakila-db/sakila-data.sql;
-- [sakila-data.txt](https://github.com/aahmedYassin/sakila-db/files/11092381/sakila-data.txt)
-- [sakila-schema.txt](https://github.com/aahmedYassin/sakila-db/files/11092382/sakila-schema.txt)
+
 ##  Technologies
 - ORM
 - Maven
