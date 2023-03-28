@@ -28,8 +28,12 @@ it build recently using Soap
 Change the configuration of Tomcat 
      http://localhost:port/manager/text
 
-- cmd
+- cmd in Server
 mvn clean compile tomcat7:redeploy
+
+-cmd in Client
+ wsimport -s src\main\java http://localhost:port/ws/Service Name?wsdl
+ to use web services and it's web methods
 
 
 
