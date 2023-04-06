@@ -4,10 +4,42 @@ Content-Type: text/xml
 
 <soap:Envelope
         xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-        xmlns:jets="http://impls.servcies.controller.jets.iti.gov/">
+        xmlns:jets="http://impls.servcies.jets.iti.gov/">
       <soap:Body>
-        <jets:findActor>
-           <arg0>2</arg0>
-         </jets:findActor>
+        <jets:findActorById>
+           <arg0>3</arg0>
+         </jets:findActorById>
+    </soap:Body>
+</soap:Envelope>
+
+###
+
+POST http://localhost:9091/SakilaApplication/ws/actor HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:findAllActors>
+         </jets:findAllActors>
+    </soap:Body>
+</soap:Envelope>
+
+###
+
+POST http://localhost:9091/SakilaApplication/ws/actor HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:findActorByFirstName>
+         <arg0>2</arg0>
+         </jets:findActorByFirstName>
+          <soap:Fault>
+             <faultstring>enter correct data</faultstring> 
+          </soap:Fault>
     </soap:Body>
 </soap:Envelope>

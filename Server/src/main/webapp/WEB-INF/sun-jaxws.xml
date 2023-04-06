@@ -5,7 +5,7 @@
    
     <endpoint
     name="ActorServicesImpl"
-    implementation="gov.iti.jets.controller.servcies.impls.ActorServicesImpl"
+    implementation="gov.iti.jets.servcies.impls.ActorServicesImpl"
     url-pattern="/ws/actor" />
     
 </endpoints>
