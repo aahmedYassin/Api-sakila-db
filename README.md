@@ -4,7 +4,7 @@
 SOAP Sakila Database Web Service
 
 ### Description
-- This API allow user to access and retrieve data from many categories such as actor,film and others
+- This API allow  to access and retrieve data from many categories such as actor,film and others
 it build recently using Soap
 
 # Database
@@ -28,8 +28,12 @@ it build recently using Soap
 Change the configuration of Tomcat 
      http://localhost:port/manager/text
 
-- cmd
+- cmd in Server
 mvn clean compile tomcat7:redeploy
+
+- cmd in Client
+ wsimport -s src\main\java http://localhost:port/ws/Service Name?wsdl
+ to use web services and it's web methods
 
 
 
