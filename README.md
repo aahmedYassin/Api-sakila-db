@@ -8,9 +8,6 @@ SOAP Sakila Database Web Service
 it build recently using Soap
 
 # Database
-- Execute the sakila-schema.sql script to create the database structure
-- execute the sakila-data.sql script to populate the database structure, by using the following commands:
-- change sakila-data.txt,sakila-schema.txt to .sql
 - mysql> SOURCE C:/temp/sakila-db/sakila-schema.sql;
 - mysql> SOURCE C:/temp/sakila-db/sakila-data.sql;
 
@@ -28,12 +25,10 @@ it build recently using Soap
 Change the configuration of Tomcat 
      http://localhost:port/manager/text
 
-- cmd in Server
+- cmd 
 mvn clean compile tomcat7:redeploy
 
-- cmd in Client
- wsimport -s src\main\java http://localhost:port/ws/Service Name?wsdl
- to use web services and it's web methods
+
 
 
 
