@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import gov.iti.jets.Exceptions.InvalidFirstNameException;
 import gov.iti.jets.repositories.impls.ActorRepoImpl;
 import gov.iti.jets.servcies.interfaces.ActorServices;
-import gov.iti.jets.model.dtos.ActorDto;
-import gov.iti.jets.model.entities.Actor;
-import gov.iti.jets.utils.mappers.ActorMapper;
+import gov.iti.jets.model.dtos.*;
+import gov.iti.jets.model.entities.*;
+import gov.iti.jets.utils.mappers.*;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebService;
 
@@ -19,7 +19,7 @@ public class ActorServicesImpl implements ActorServices {
     @Override
     public ActorDto findActorById(int id) {
         ActorRepoImpl actorRepoImpl = new ActorRepoImpl();
-        return ActorMapper.toDto(actorRepoImpl.findActorById(id));
+        return ActorMapper.INSTANCE.toDto(actorRepoImpl.findActorById(id));
 
     }
 
@@ -31,7 +31,7 @@ public class ActorServicesImpl implements ActorServices {
         ArrayList<ActorDto> allActorsDto = new ArrayList<>();
         for (int i = 0; i < allActors.size(); i++) {
 
-            allActorsDto.add(ActorMapper.toDto(allActors.get(i)));
+            allActorsDto.add(ActorMapper.INSTANCE.toDto(allActors.get(i)));
         }
 
         return allActorsDto;
@@ -46,16 +46,47 @@ public class ActorServicesImpl implements ActorServices {
 
             throw new InvalidFirstNameException(" first name not exist");
         }
-        return ActorMapper.toDto(actorRepoImpl.findActorByFirstName(name));
+        return ActorMapper.INSTANCE.toDto(actorRepoImpl.findActorByFirstName(name));
 
     }
 
+    @WebMethod
     @Override
     public ActorDto createActor(ActorDto actorDto) {
         ActorRepoImpl actorRepoImpl = new ActorRepoImpl();
         actorDto.setLastUpdate(new Timestamp(System.currentTimeMillis()));
-        actorRepoImpl.createActor(ActorMapper.toEntity(actorDto));
+        actorRepoImpl.createActor(ActorMapper.INSTANCE.toEntity(actorDto));
         return actorDto;
+    }
+
+    @WebMethod
+    @Override
+    public ActorDto updateActorById(int id, String firstName) {
+        ActorRepoImpl actorRepoImpl = new ActorRepoImpl();
+        return ActorMapper.INSTANCE.toDto(actorRepoImpl.updateActorById(id, firstName));
+
+    }
+
+    @WebMethod
+    @Override
+    public int deleteActorById(int id) {
+        ActorRepoImpl actorRepoImpl = new ActorRepoImpl();
+        return actorRepoImpl.deleteActorById(id);
+
+    }
+
+    @WebMethod
+    @Override
+    public ArrayList<FilmDto> getActorFilmsById(int id) {
+
+        ActorRepoImpl actorRepoImpl = new ActorRepoImpl();
+         ArrayList<Film>film=actorRepoImpl.getActorFilmsById(id);
+         ArrayList<FilmDto>filmDto=new ArrayList<>();
+         for(int i=0;i<film.size();i++){
+            filmDto.add(FilmMapper.INSTANCE.toDto(film.get(i)));
+         }
+
+         return filmDto;
     }
 
 }

@@ -2,25 +2,14 @@ package gov.iti.jets.utils.mappers;
 
 import gov.iti.jets.model.dtos.ActorDto;
 import gov.iti.jets.model.entities.Actor;
+import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
 
-public class ActorMapper {
+@Mapper 
+public interface ActorMapper {
 
-    public static ActorDto toDto(Actor actor) {
-        if (actor == null) {
-            return null;
-        }
-        ActorDto actorDto = new ActorDto(actor.getActorId(), actor.getFirstName(), actor.getLastName(),
-                actor.getLastUpdate());
+        ActorMapper INSTANCE = Mappers.getMapper(ActorMapper.class);
+        ActorDto toDto(Actor actor);
+        Actor toEntity(ActorDto actorDto);
 
-        return actorDto;
-    }
-
-    public static Actor toEntity(ActorDto actorDto) {
-        if (actorDto == null) {
-            return null;
-        }
-        Actor actor = new Actor(actorDto.getFirstName(), actorDto.getLastName(),actorDto.getLastUpdate());
-        return actor;
-
-    }
 }

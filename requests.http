@@ -7,7 +7,7 @@ Content-Type: text/xml
         xmlns:jets="http://impls.servcies.jets.iti.gov/">
       <soap:Body>
         <jets:findActorById>
-           <arg0>202</arg0>
+           <arg0>1</arg0>
          </jets:findActorById>
     </soap:Body>
 </soap:Envelope>
@@ -36,7 +36,7 @@ Content-Type: text/xml
         xmlns:jets="http://impls.servcies.jets.iti.gov/">
       <soap:Body>
         <jets:findActorByFirstName>
-         <arg0>yassinn</arg0>
+         <arg0>messi</arg0>
          </jets:findActorByFirstName>
     </soap:Body>
 </soap:Envelope>
@@ -53,10 +53,55 @@ Content-Type: text/xml
       <soap:Body>
         <jets:createActor>
          <arg0>
-               <firstName>ali</firstName>
-               <lastName>yassin</lastName> 
+               <firstName>yassin</firstName>
+               <lastName>ali</lastName> 
          </arg0>
          </jets:createActor>
     </soap:Body>
 </soap:Envelope>
  
+ 
+###
+POST http://localhost:9091/SakilaApplication/ws/actor HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:updateActorById>
+         <arg0>207</arg0>
+          <arg1>aya</arg1>
+         </jets:updateActorById>
+    </soap:Body>
+</soap:Envelope>
+ 
+
+###
+POST http://localhost:9091/SakilaApplication/ws/actor HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:deleteActorById>
+          <arg0>206</arg0>
+         </jets:deleteActorById>
+    </soap:Body>
+</soap:Envelope>
+
+###
+POST http://localhost:9091/SakilaApplication/ws/actor HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getActorFilmsById>
+          <arg0>1</arg0>
+         </jets:getActorFilmsById>
+    </soap:Body>
+</soap:Envelope>
+
