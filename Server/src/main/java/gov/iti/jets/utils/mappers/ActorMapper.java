@@ -19,8 +19,7 @@ public class ActorMapper {
         if (actorDto == null) {
             return null;
         }
-        Actor actor = new Actor(actorDto.getFirstName(), actorDto.getLastName(),
-                actorDto.getLastUpdate());
+        Actor actor = new Actor(actorDto.getFirstName(), actorDto.getLastName(),actorDto.getLastUpdate());
         return actor;
 
     }

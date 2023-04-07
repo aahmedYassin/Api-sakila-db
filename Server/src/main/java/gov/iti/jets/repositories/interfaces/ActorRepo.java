@@ -9,6 +9,7 @@ public interface ActorRepo {
     public Actor findActorById(int id);
     public ArrayList<Actor> findAllActors();
     public Actor findActorByFirstName(String firstName);
-
-
+    public Actor createActor(Actor actor);
+    public Actor updateActorById(int id, String firstName);
+  
 }

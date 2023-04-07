@@ -1,5 +1,6 @@
 package gov.iti.jets.servcies.impls;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import gov.iti.jets.Exceptions.InvalidFirstNameException;
@@ -10,7 +11,6 @@ import gov.iti.jets.model.entities.Actor;
 import gov.iti.jets.utils.mappers.ActorMapper;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebService;
-import jakarta.xml.ws.WebFault;
 
 @WebService
 public class ActorServicesImpl implements ActorServices {
@@ -48,6 +48,14 @@ public class ActorServicesImpl implements ActorServices {
         }
         return ActorMapper.toDto(actorRepoImpl.findActorByFirstName(name));
 
+    }
+
+    @Override
+    public ActorDto createActor(ActorDto actorDto) {
+        ActorRepoImpl actorRepoImpl = new ActorRepoImpl();
+        actorDto.setLastUpdate(new Timestamp(System.currentTimeMillis()));
+        actorRepoImpl.createActor(ActorMapper.toEntity(actorDto));
+        return actorDto;
     }
 
 }

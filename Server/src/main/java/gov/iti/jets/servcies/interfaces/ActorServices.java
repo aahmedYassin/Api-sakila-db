@@ -12,5 +12,6 @@ public interface ActorServices {
     public ActorDto findActorById(int id);
     public ArrayList<ActorDto> findAllActors();
     public ActorDto findActorByFirstName(String name) throws InvalidFirstNameException;
+    public ActorDto createActor(ActorDto actorDto);
 
 }
