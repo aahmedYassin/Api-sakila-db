@@ -18,6 +18,9 @@ it build recently using Soap
 - JAX-WS Metro
 - SoapUi(https://www.soapui.org/downloads/soapui/)
 
+##  EndPoints
+ -actor
+ -film
 
 ## Run with Maven
 
