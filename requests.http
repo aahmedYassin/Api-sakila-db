@@ -105,3 +105,59 @@ Content-Type: text/xml
     </soap:Body>
 </soap:Envelope>
 
+###
+
+POST http://localhost:9091/SakilaApplication/ws/film HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:findFilmById>
+           <arg0>1</arg0>
+         </jets:findFilmById>
+    </soap:Body>
+</soap:Envelope>
+
+###
+POST http://localhost:9091/SakilaApplication/ws/film HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:findAllFilms></jets:findAllFilms>
+    </soap:Body>
+</soap:Envelope>
+
+
+
+###
+
+POST http://localhost:9091/SakilaApplication/ws/category HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:findCategoryById>
+           <arg0>1</arg0>
+         </jets:findCategoryById>
+    </soap:Body>
+</soap:Envelope>
+
+###
+POST http://localhost:9091/SakilaApplication/ws/category HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:findAllCategories></jets:findAllCategories>
+    </soap:Body>
+</soap:Envelope>
+

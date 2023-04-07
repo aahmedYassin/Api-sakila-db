@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime" version="2.0">
-   
-   
+
+
     <endpoint
-    name="ActorServicesImpl"
-    implementation="gov.iti.jets.servcies.impls.ActorServicesImpl"
-    url-pattern="/ws/actor" />
-    
+        name="ActorServicesImpl"
+        implementation="gov.iti.jets.servcies.impls.ActorServicesImpl"
+        url-pattern="/ws/actor" />
+
+
+    <endpoint
+        name="FilmServicesImpl"
+        implementation="gov.iti.jets.servcies.impls.FilmServicesImpl"
+        url-pattern="/ws/film" />
+
+        
+    <endpoint
+    name="CategoryServicesImpl"
+    implementation="gov.iti.jets.servcies.impls.CategoryServicesImpl"
+    url-pattern="/ws/category" />
+
 </endpoints>

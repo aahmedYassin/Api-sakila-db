@@ -9,9 +9,10 @@ import gov.iti.jets.model.dtos.*;
 public class App {
 
   public static void main(String[] args) throws InvalidFirstNameException {
-     ActorServicesImpl a = new ActorServicesImpl();
-     ArrayList<FilmDto> film = a.getActorFilmsById(1);
-    System.out.println(film.get(0).toString());
+    //  ActorServicesImpl a = new ActorServicesImpl();
+    //  ArrayList<FilmDto> film = a.getActorFilmsById(1);
+    // System.out.println(film.get(0).toString());
+   
 
   }
 }
