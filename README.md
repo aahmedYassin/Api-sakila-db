@@ -19,8 +19,8 @@ it build recently using Soap
 - SoapUi(https://www.soapui.org/downloads/soapui/)
 
 ##  EndPoints
- -actor
- -film
+ - actor
+ - film
 
 ## Run with Maven
 
