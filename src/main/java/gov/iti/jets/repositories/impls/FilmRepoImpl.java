@@ -19,28 +19,45 @@ public class FilmRepoImpl implements FilmRepo {
 
     @Override
     public Film getFilmById(int id) {
-        return EntityManagerSingleton.getEntityManager().find(Film.class, id);
+        try {
+            return EntityManagerSingleton.getEntityManager().find(Film.class, id);
+        } catch (NoSuchElementException e) {
+
+            return null;
+        }
 
     }
 
     @Override
     public ArrayList<Film> getAllFilms() {
-        Query query = EntityManagerSingleton.getEntityManager().createQuery("select f from Film f");
-        return (ArrayList<Film>) query.getResultList();
+        try {
+            Query query = EntityManagerSingleton.getEntityManager().createQuery("select f from Film f");
+            return (ArrayList<Film>) query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
 
     }
 
     @Override
     public ArrayList<Film> getFilmByLength(Short length) {
-        Query query = EntityManagerSingleton.getEntityManager()
-                .createQuery("select f from Film f where f.length=:length");
-        query.setParameter("length", length);
-        return (ArrayList<Film>) query.getResultList();
+        try {
+            Query query = EntityManagerSingleton.getEntityManager()
+                    .createQuery("select f from Film f where f.length=:length");
+            query.setParameter("length", length);
+            return (ArrayList<Film>) query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
     }
 
     @Override
     public Category getFilmCategoryById(int id) {
+
         Film film = getFilmById(id);
+        if (film == null) {
+            return null;
+        }
         Set<FilmCategory> filmCategory = film.getFilmCategories();
         List<FilmCategory> filmCategoryList = new ArrayList<>(filmCategory);
         return filmCategoryList.get(0).getCategory();
@@ -50,6 +67,10 @@ public class FilmRepoImpl implements FilmRepo {
     @Override
     public ArrayList<Actor> geFilmActorsById(int id) {
         Film film = getFilmById(id);
+        if (film == null) {
+
+            return null;
+        }
         Set<FilmActor> filmActors = film.getFilmActors();
         List<FilmActor> filmActorsList = new ArrayList<>(filmActors);
         ArrayList<Actor> actors = new ArrayList<>();

@@ -1,5 +1,6 @@
 package gov.iti.jets.repositories.interfaces;
 
+import gov.iti.jets.model.dtos.FilmDto;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,5 +11,7 @@ public interface CategoryRepo {
     public Category getCategoryById(int id);
 
     public ArrayList<Category> getAllCategories();
+    
+    public ArrayList<Film> getCategoryFilmsById(int id);
 
 }

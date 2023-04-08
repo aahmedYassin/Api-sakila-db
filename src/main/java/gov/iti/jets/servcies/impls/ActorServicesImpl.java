@@ -3,7 +3,7 @@ package gov.iti.jets.servcies.impls;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
-import gov.iti.jets.Exceptions.InvalidFirstNameException;
+import gov.iti.jets.Exceptions.*;
 import gov.iti.jets.repositories.impls.ActorRepoImpl;
 import gov.iti.jets.servcies.interfaces.ActorServices;
 import gov.iti.jets.model.dtos.*;
@@ -16,8 +16,13 @@ import jakarta.jws.WebService;
 public class ActorServicesImpl implements ActorServices {
 
     @Override
-    public ActorDto getActorById(int id) {
+    public ActorDto getActorById(int id) throws InvalidDataException {
         ActorRepoImpl actorRepoImpl = new ActorRepoImpl();
+
+        if (actorRepoImpl.getActorById(id) == null) {
+
+            throw new InvalidDataException(" actor id not exist");
+        }
         return ActorMapper.INSTANCE.toDto(actorRepoImpl.getActorById(id));
 
     }
@@ -37,11 +42,11 @@ public class ActorServicesImpl implements ActorServices {
     }
 
     @Override
-    public ActorDto getActorByFirstName(String name) throws InvalidFirstNameException {
+    public ActorDto getActorByFirstName(String name) throws InvalidDataException {
         ActorRepoImpl actorRepoImpl = new ActorRepoImpl();
         if (actorRepoImpl.getActorByFirstName(name) == null) {
 
-            throw new InvalidFirstNameException(" first name not exist");
+            throw new InvalidDataException(" first name not exist");
         }
         return ActorMapper.INSTANCE.toDto(actorRepoImpl.getActorByFirstName(name));
 
@@ -56,30 +61,39 @@ public class ActorServicesImpl implements ActorServices {
     }
 
     @Override
-    public ActorDto updateActorById(int id, String firstName) {
+    public ActorDto updateActorById(int id, String firstName) throws InvalidDataException {
         ActorRepoImpl actorRepoImpl = new ActorRepoImpl();
+        if (actorRepoImpl.updateActorById(id, firstName) == null) {
+
+            throw new InvalidDataException(" actor id not exist");
+        }
         return ActorMapper.INSTANCE.toDto(actorRepoImpl.updateActorById(id, firstName));
 
     }
 
     @Override
-    public int deleteActorById(int id) {
+    public int deleteActorById(int id) throws InvalidDataException {
         ActorRepoImpl actorRepoImpl = new ActorRepoImpl();
+
         return actorRepoImpl.deleteActorById(id);
 
     }
 
     @Override
-    public ArrayList<FilmDto> getActorFilmsById(int id) {
+    public ArrayList<FilmDto> getActorFilmsById(int id) throws InvalidDataException {
 
         ActorRepoImpl actorRepoImpl = new ActorRepoImpl();
-         ArrayList<Film>film=actorRepoImpl.getActorFilmsById(id);
-         ArrayList<FilmDto>filmDto=new ArrayList<>();
-         for(int i=0;i<film.size();i++){
-            filmDto.add(FilmMapper.INSTANCE.toDto(film.get(i)));
-         }
+        if (actorRepoImpl.getActorFilmsById(id) == null) {
 
-         return filmDto;
+            throw new InvalidDataException(" actor id not exist");
+        }
+        ArrayList<Film> film = actorRepoImpl.getActorFilmsById(id);
+        ArrayList<FilmDto> filmDto = new ArrayList<>();
+        for (int i = 0; i < film.size(); i++) {
+            filmDto.add(FilmMapper.INSTANCE.toDto(film.get(i)));
+        }
+
+        return filmDto;
     }
 
 }

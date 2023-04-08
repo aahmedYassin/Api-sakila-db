@@ -19,7 +19,12 @@ public class ActorRepoImpl implements ActorRepo {
 
     @Override
     public Actor getActorById(int id) {
-        return EntityManagerSingleton.getEntityManager().find(Actor.class, id);
+        try {
+            return EntityManagerSingleton.getEntityManager().find(Actor.class, id);
+        } catch (NoSuchElementException e) {
+
+            return null;
+        }
 
     }
 
@@ -83,6 +88,10 @@ public class ActorRepoImpl implements ActorRepo {
     @Override
     public ArrayList<Film> getActorFilmsById(int id) {
         Actor actor = getActorById(id);
+        if (actor == null) {
+
+            return null;
+        }
 
         Set<FilmActor> filmActor = actor.getFilmActors();
         List<FilmActor> filmActorList = new ArrayList<>(filmActor);

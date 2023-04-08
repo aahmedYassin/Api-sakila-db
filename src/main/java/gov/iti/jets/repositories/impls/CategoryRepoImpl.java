@@ -19,17 +19,42 @@ public class CategoryRepoImpl implements CategoryRepo {
 
     @Override
     public Category getCategoryById(int id) {
-        return EntityManagerSingleton.getEntityManager().find(Category.class, id);
+        try {
+            return EntityManagerSingleton.getEntityManager().find(Category.class, id);
+        } catch (NoSuchElementException e) {
 
+            return null;
+        }
     }
 
     @Override
     public ArrayList<Category> getAllCategories() {
-        Query query = EntityManagerSingleton.getEntityManager().createQuery("select c from Category c");
-        return (ArrayList<Category>) query.getResultList();
+        try {
+            Query query = EntityManagerSingleton.getEntityManager().createQuery("select c from Category c");
+            return (ArrayList<Category>) query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
 
     }
 
-  
+    @Override
+    public ArrayList<Film> getCategoryFilmsById(int id) {
+
+        Category category = getCategoryById(id);
+        if (category == null) {
+            return null;
+
+        }
+        Set<FilmCategory> filmCategorys = category.getFilmCategories();
+        List<FilmCategory> filmCategoryList = new ArrayList<>(filmCategorys);
+        ArrayList<Film> films = new ArrayList<>();
+
+        for (int i = 0; i < filmCategoryList.size(); i++) {
+            films.add(filmCategoryList.get(i).getFilm());
+        }
+
+        return films;
+    }
 
 }
