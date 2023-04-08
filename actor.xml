@@ -1,0 +1,121 @@
+<xs:schema xmlns:tns="http://interfaces.servcies.jets.iti.gov/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+    targetNamespace="http://interfaces.servcies.jets.iti.gov/">
+    <xs:element name="InvalidDataException" type="tns:InvalidDataException" />
+    <xs:element name="createActor" type="tns:createActor" />
+    <xs:element name="createActorResponse" type="tns:createActorResponse" />
+    <xs:element name="deleteActorById" type="tns:deleteActorById" />
+    <xs:element name="deleteActorByIdResponse" type="tns:deleteActorByIdResponse" />
+    <xs:element name="getActorByFirstName" type="tns:getActorByFirstName" />
+    <xs:element name="getActorByFirstNameResponse" type="tns:getActorByFirstNameResponse" />
+    <xs:element name="getActorById" type="tns:getActorById" />
+    <xs:element name="getActorByIdResponse" type="tns:getActorByIdResponse" />
+    <xs:element name="getActorFilmsById" type="tns:getActorFilmsById" />
+    <xs:element name="getActorFilmsByIdResponse" type="tns:getActorFilmsByIdResponse" />
+    <xs:element name="getAllActors" type="tns:getAllActors" />
+    <xs:element name="getAllActorsResponse" type="tns:getAllActorsResponse" />
+    <xs:element name="updateActorById" type="tns:updateActorById" />
+    <xs:element name="updateActorByIdResponse" type="tns:updateActorByIdResponse" />
+    <xs:complexType name="getAllActors">
+        <xs:sequence />
+    </xs:complexType>
+    <xs:complexType name="getAllActorsResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:actorDto" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="actorDto">
+        <xs:sequence>
+            <xs:element name="actorId" type="xs:short" minOccurs="0" />
+            <xs:element name="firstName" type="xs:string" minOccurs="0" />
+            <xs:element name="lastName" type="xs:string" minOccurs="0" />
+            <xs:element name="lastUpdate" type="tns:timestamp" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="timestamp">
+        <xs:sequence>
+            <xs:element name="nanos" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getActorFilmsById">
+        <xs:sequence>
+            <xs:element name="actorId" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getActorFilmsByIdResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:filmDto" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="filmDto">
+        <xs:sequence>
+            <xs:element name="description" type="xs:string" minOccurs="0" />
+            <xs:element name="filmId" type="xs:short" minOccurs="0" />
+            <xs:element name="lastUpdate" type="tns:timestamp" minOccurs="0" />
+            <xs:element name="length" type="xs:short" minOccurs="0" />
+            <xs:element name="rating" type="xs:string" minOccurs="0" />
+            <xs:element name="releaseYear" type="xs:dateTime" minOccurs="0" />
+            <xs:element name="rentalDuration" type="xs:byte" />
+            <xs:element name="rentalRate" type="xs:decimal" minOccurs="0" />
+            <xs:element name="replacementCost" type="xs:decimal" minOccurs="0" />
+            <xs:element name="specialFeatures" type="xs:string" minOccurs="0" />
+            <xs:element name="title" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="InvalidDataException">
+        <xs:sequence>
+            <xs:element name="message" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getActorById">
+        <xs:sequence>
+            <xs:element name="actorId" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getActorByIdResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:actorDto" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="updateActorById">
+        <xs:sequence>
+            <xs:element name="actorId" type="xs:int" />
+            <xs:element name="actorFirstName" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="updateActorByIdResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:actorDto" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getActorByFirstName">
+        <xs:sequence>
+            <xs:element name="actorFirstName" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getActorByFirstNameResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:actorDto" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="createActor">
+        <xs:sequence>
+            <xs:element name="actor" type="tns:actorDto" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="createActorResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:actorDto" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="deleteActorById">
+        <xs:sequence>
+            <xs:element name="actorId" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="deleteActorByIdResponse">
+        <xs:sequence>
+            <xs:element name="return" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
