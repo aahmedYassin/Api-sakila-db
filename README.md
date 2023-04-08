@@ -21,6 +21,7 @@ it build recently using Soap
 ##  EndPoints
  - actor
  - film
+ - category
 
 ## Run with Maven
 
