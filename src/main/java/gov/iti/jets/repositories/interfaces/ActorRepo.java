@@ -7,12 +7,18 @@ import gov.iti.jets.model.entities.*;
 
 public interface ActorRepo {
 
-    public Actor findActorById(int id);
-    public ArrayList<Actor> findAllActors();
-    public Actor findActorByFirstName(String firstName);
+    public Actor getActorById(int id);
+
+    public ArrayList<Actor> getAllActors();
+
+    public Actor getActorByFirstName(String firstName);
+
     public Actor createActor(Actor actor);
+
     public Actor updateActorById(int id, String firstName);
+
     public int deleteActorById(int id);
+
     public ArrayList<Film> getActorFilmsById(int id);
 
 }

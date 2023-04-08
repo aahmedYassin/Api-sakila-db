@@ -18,13 +18,13 @@ public class CategoryRepoImpl implements CategoryRepo {
     }
 
     @Override
-    public Category findCategoryById(int id) {
+    public Category getCategoryById(int id) {
         return EntityManagerSingleton.getEntityManager().find(Category.class, id);
 
     }
 
     @Override
-    public ArrayList<Category> findAllCategories() {
+    public ArrayList<Category> getAllCategories() {
         Query query = EntityManagerSingleton.getEntityManager().createQuery("select c from Category c");
         return (ArrayList<Category>) query.getResultList();
 

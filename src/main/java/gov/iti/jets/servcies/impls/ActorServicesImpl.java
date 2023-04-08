@@ -12,22 +12,20 @@ import gov.iti.jets.utils.mappers.*;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebService;
 
-@WebService
+@WebService(endpointInterface = "gov.iti.jets.servcies.interfaces.ActorServices")
 public class ActorServicesImpl implements ActorServices {
 
-    @WebMethod
     @Override
-    public ActorDto findActorById(int id) {
+    public ActorDto getActorById(int id) {
         ActorRepoImpl actorRepoImpl = new ActorRepoImpl();
-        return ActorMapper.INSTANCE.toDto(actorRepoImpl.findActorById(id));
+        return ActorMapper.INSTANCE.toDto(actorRepoImpl.getActorById(id));
 
     }
 
-    @WebMethod
     @Override
-    public ArrayList<ActorDto> findAllActors() {
+    public ArrayList<ActorDto> getAllActors() {
         ActorRepoImpl actorRepoImpl = new ActorRepoImpl();
-        ArrayList<Actor> allActors = actorRepoImpl.findAllActors();
+        ArrayList<Actor> allActors = actorRepoImpl.getAllActors();
         ArrayList<ActorDto> allActorsDto = new ArrayList<>();
         for (int i = 0; i < allActors.size(); i++) {
 
@@ -38,19 +36,17 @@ public class ActorServicesImpl implements ActorServices {
 
     }
 
-    @WebMethod
     @Override
-    public ActorDto findActorByFirstName(String name) throws InvalidFirstNameException {
+    public ActorDto getActorByFirstName(String name) throws InvalidFirstNameException {
         ActorRepoImpl actorRepoImpl = new ActorRepoImpl();
-        if (actorRepoImpl.findActorByFirstName(name) == null) {
+        if (actorRepoImpl.getActorByFirstName(name) == null) {
 
             throw new InvalidFirstNameException(" first name not exist");
         }
-        return ActorMapper.INSTANCE.toDto(actorRepoImpl.findActorByFirstName(name));
+        return ActorMapper.INSTANCE.toDto(actorRepoImpl.getActorByFirstName(name));
 
     }
 
-    @WebMethod
     @Override
     public ActorDto createActor(ActorDto actorDto) {
         ActorRepoImpl actorRepoImpl = new ActorRepoImpl();
@@ -59,7 +55,6 @@ public class ActorServicesImpl implements ActorServices {
         return actorDto;
     }
 
-    @WebMethod
     @Override
     public ActorDto updateActorById(int id, String firstName) {
         ActorRepoImpl actorRepoImpl = new ActorRepoImpl();
@@ -67,7 +62,6 @@ public class ActorServicesImpl implements ActorServices {
 
     }
 
-    @WebMethod
     @Override
     public int deleteActorById(int id) {
         ActorRepoImpl actorRepoImpl = new ActorRepoImpl();
@@ -75,7 +69,6 @@ public class ActorServicesImpl implements ActorServices {
 
     }
 
-    @WebMethod
     @Override
     public ArrayList<FilmDto> getActorFilmsById(int id) {
 

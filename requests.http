@@ -4,11 +4,11 @@ Content-Type: text/xml
 
 <soap:Envelope
         xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
       <soap:Body>
-        <jets:findActorById>
-           <arg0>1</arg0>
-         </jets:findActorById>
+        <jets:getActorById>
+           <actorId>1</actorId>
+         </jets:getActorById>
     </soap:Body>
 </soap:Envelope>
 
@@ -19,10 +19,9 @@ Content-Type: text/xml
 
 <soap:Envelope
         xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
       <soap:Body>
-        <jets:findAllActors>
-         </jets:findAllActors>
+        <jets:getAllActors></jets:getAllActors>
     </soap:Body>
 </soap:Envelope>
 
@@ -33,11 +32,11 @@ Content-Type: text/xml
 
 <soap:Envelope
         xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
       <soap:Body>
-        <jets:findActorByFirstName>
-         <arg0>messi</arg0>
-         </jets:findActorByFirstName>
+        <jets:getActorByFirstName>
+         <actorFirstName>messi</actorFirstName>
+         </jets:getActorByFirstName>
     </soap:Body>
 </soap:Envelope>
 
@@ -49,13 +48,13 @@ Content-Type: text/xml
 
 <soap:Envelope
         xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
       <soap:Body>
         <jets:createActor>
-         <arg0>
-               <firstName>yassin</firstName>
+         <actor>
+               <firstName>aya</firstName>
                <lastName>ali</lastName> 
-         </arg0>
+         </actor>
          </jets:createActor>
     </soap:Body>
 </soap:Envelope>
@@ -67,11 +66,11 @@ Content-Type: text/xml
 
 <soap:Envelope
         xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
       <soap:Body>
         <jets:updateActorById>
-         <arg0>207</arg0>
-          <arg1>aya</arg1>
+         <actorId>209</actorId>
+          <actorFirstName>aya</actorFirstName>
          </jets:updateActorById>
     </soap:Body>
 </soap:Envelope>
@@ -83,10 +82,10 @@ Content-Type: text/xml
 
 <soap:Envelope
         xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
       <soap:Body>
         <jets:deleteActorById>
-          <arg0>206</arg0>
+          <actorId>209</actorId>
          </jets:deleteActorById>
     </soap:Body>
 </soap:Envelope>
@@ -97,10 +96,10 @@ Content-Type: text/xml
 
 <soap:Envelope
         xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
       <soap:Body>
         <jets:getActorFilmsById>
-          <arg0>1</arg0>
+          <actorId>1</actorId>
          </jets:getActorFilmsById>
     </soap:Body>
 </soap:Envelope>
@@ -112,11 +111,11 @@ Content-Type: text/xml
 
 <soap:Envelope
         xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
       <soap:Body>
-        <jets:findFilmById>
-           <arg0>1</arg0>
-         </jets:findFilmById>
+        <jets:getFilmById>
+           <filmId>1</filmId>
+         </jets:getFilmById>
     </soap:Body>
 </soap:Envelope>
 
@@ -126,12 +125,60 @@ Content-Type: text/xml
 
 <soap:Envelope
         xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
       <soap:Body>
-        <jets:findAllFilms></jets:findAllFilms>
+        <jets:getAllFilms></jets:getAllFilms>
     </soap:Body>
 </soap:Envelope>
 
+###
+
+POST http://localhost:9091/SakilaApplication/ws/film HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getFilmByLength>
+          <filmLength>86</filmLength>
+        </jets:getFilmByLength>
+    </soap:Body>
+</soap:Envelope>
+
+
+
+###
+
+POST http://localhost:9091/SakilaApplication/ws/film HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getFilmCategoryById>
+          <filmId>1</filmId>
+        </jets:getFilmCategoryById>
+    </soap:Body>
+</soap:Envelope>
+
+
+
+###
+
+POST http://localhost:9091/SakilaApplication/ws/film HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:geFilmActorsById>
+          <filmId>1</filmId>
+        </jets:geFilmActorsById>
+    </soap:Body>
+</soap:Envelope>
 
 
 ###
@@ -141,11 +188,11 @@ Content-Type: text/xml
 
 <soap:Envelope
         xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
       <soap:Body>
-        <jets:findCategoryById>
-           <arg0>1</arg0>
-         </jets:findCategoryById>
+        <jets:getCategoryById>
+           <categoryId>1</categoryId>
+         </jets:getCategoryById>
     </soap:Body>
 </soap:Envelope>
 
@@ -155,9 +202,11 @@ Content-Type: text/xml
 
 <soap:Envelope
         xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
-        xmlns:jets="http://impls.servcies.jets.iti.gov/">
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
       <soap:Body>
-        <jets:findAllCategories></jets:findAllCategories>
+        <jets:getAllCategories></jets:getAllCategories>
     </soap:Body>
 </soap:Envelope>
+
+
 

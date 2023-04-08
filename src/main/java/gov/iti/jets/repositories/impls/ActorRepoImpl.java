@@ -18,20 +18,20 @@ public class ActorRepoImpl implements ActorRepo {
     }
 
     @Override
-    public Actor findActorById(int id) {
+    public Actor getActorById(int id) {
         return EntityManagerSingleton.getEntityManager().find(Actor.class, id);
 
     }
 
     @Override
-    public ArrayList<Actor> findAllActors() {
+    public ArrayList<Actor> getAllActors() {
         Query query = EntityManagerSingleton.getEntityManager().createQuery("select a from Actor a");
         return (ArrayList<Actor>) query.getResultList();
 
     }
 
     @Override
-    public Actor findActorByFirstName(String firstName) {
+    public Actor getActorByFirstName(String firstName) {
         try {
             Query query = EntityManagerSingleton.getEntityManager()
                     .createQuery("select a from Actor a where a.firstName=:firstName");
@@ -54,7 +54,7 @@ public class ActorRepoImpl implements ActorRepo {
 
     @Override
     public Actor updateActorById(int id, String firstName) {
-        Actor actor = findActorById(id);
+        Actor actor = getActorById(id);
         if (actor == null) {
             return null;
         }
@@ -69,7 +69,7 @@ public class ActorRepoImpl implements ActorRepo {
 
     @Override
     public int deleteActorById(int id) {
-        Actor actor = findActorById(id);
+        Actor actor = getActorById(id);
         if (actor == null) {
             return -1;
         }
@@ -82,7 +82,7 @@ public class ActorRepoImpl implements ActorRepo {
 
     @Override
     public ArrayList<Film> getActorFilmsById(int id) {
-        Actor actor = findActorById(id);
+        Actor actor = getActorById(id);
 
         Set<FilmActor> filmActor = actor.getFilmActors();
         List<FilmActor> filmActorList = new ArrayList<>(filmActor);

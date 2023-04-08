@@ -11,22 +11,21 @@ import gov.iti.jets.utils.mappers.*;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebService;
 
-@WebService
+
+@WebService(endpointInterface = "gov.iti.jets.servcies.interfaces.CategoryServices")
 public class CategoryServicesImpl implements CategoryServices {
 
-    @WebMethod
     @Override
-    public CategoryDto findCategoryById(int id) {
+    public CategoryDto getCategoryById(int id) {
         CategoryRepoImpl categoryRepoImpl = new CategoryRepoImpl();
-        return CategoryMapper.INSTANCE.toDto(categoryRepoImpl.findCategoryById(id));
+        return CategoryMapper.INSTANCE.toDto(categoryRepoImpl.getCategoryById(id));
 
     }
 
-    @WebMethod
     @Override
-    public ArrayList<CategoryDto> findAllCategories() {
+    public ArrayList<CategoryDto> getAllCategories() {
         CategoryRepoImpl categoryRepoImpl = new CategoryRepoImpl();
-        ArrayList<Category> allCategories = categoryRepoImpl.findAllCategories();
+        ArrayList<Category> allCategories = categoryRepoImpl.getAllCategories();
         ArrayList<CategoryDto> allCategoriesDto = new ArrayList<>();
         for (int i = 0; i < allCategories.size(); i++) {
 

@@ -7,8 +7,8 @@ import gov.iti.jets.model.entities.*;
 
 public interface CategoryRepo {
 
-    public Category findCategoryById(int id);
-    public ArrayList<Category> findAllCategories();
-   
+    public Category getCategoryById(int id);
+
+    public ArrayList<Category> getAllCategories();
 
 }
