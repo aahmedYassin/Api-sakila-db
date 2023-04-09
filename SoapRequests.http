@@ -99,7 +99,7 @@ Content-Type: text/xml
         xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
       <soap:Body>
         <jets:getActorFilmsById>
-          <actorId>17777</actorId>
+          <actorId>1</actorId>
          </jets:getActorFilmsById>
     </soap:Body>
 </soap:Envelope>
@@ -141,7 +141,7 @@ Content-Type: text/xml
         xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
       <soap:Body>
         <jets:getFilmByLength>
-          <filmLength>8</filmLength>
+          <filmLength>64</filmLength>
         </jets:getFilmByLength>
     </soap:Body>
 </soap:Envelope>
