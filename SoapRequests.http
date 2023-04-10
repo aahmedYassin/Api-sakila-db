@@ -223,3 +223,69 @@ Content-Type: text/xml
          </jets:getCategoryFilmsById>
     </soap:Body>
 </soap:Envelope>
+
+
+
+###
+
+POST http://localhost:9091/SakilaApplication/ws/city HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getCityById>
+           <cityId>1</cityId>
+         </jets:getCityById>
+    </soap:Body>
+</soap:Envelope>
+
+
+###
+
+POST http://localhost:9091/SakilaApplication/ws/country HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getCountryById>
+           <countryId>1</countryId>
+         </jets:getCountryById>
+    </soap:Body>
+</soap:Envelope>
+
+
+###
+
+POST http://localhost:9091/SakilaApplication/ws/address HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getAddressById>
+           <addressId>1</addressId>
+         </jets:getAddressById>
+    </soap:Body>
+</soap:Envelope>
+
+
+
+###
+
+POST http://localhost:9091/SakilaApplication/ws/country HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getCountryCities>
+           <countryId>28</countryId>
+         </jets:getCountryCities>
+    </soap:Body>
+</soap:Envelope>
