@@ -1,0 +1,36 @@
+
+
+
+POST http://localhost:9091/SakilaApplication/ws/customer HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getCustomerById>
+           <customerId>1</customerId>
+         </jets:getCustomerById>
+    </soap:Body>
+</soap:Envelope>
+
+
+###
+
+
+
+POST http://localhost:9091/SakilaApplication/ws/customer HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getCustomerByName>
+           <customerName>LINDA</customerName>
+         </jets:getCustomerByName>
+    </soap:Body>
+</soap:Envelope>
+
+
+

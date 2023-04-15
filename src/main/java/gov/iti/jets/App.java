@@ -8,7 +8,12 @@ import gov.iti.jets.model.dtos.*;
 import gov.iti.jets.repositories.impls.*;
 import gov.iti.jets.servcies.impls.CategoryServicesImpl;
 import gov.iti.jets.servcies.impls.CityServicesImpl;
+import gov.iti.jets.servcies.impls.CustomerServicesImpl;
+import gov.iti.jets.servcies.impls.StaffServicesImpl;
+import gov.iti.jets.servcies.impls.StoreServicesImpl;
 import gov.iti.jets.servcies.interfaces.CityServices;
+import gov.iti.jets.servcies.interfaces.StaffServices;
+import gov.iti.jets.servcies.interfaces.StoreServices;
 import gov.iti.jets.repositories.impls.*;
 import gov.iti.jets.servcies.impls.AddressServicesImpl;
 
@@ -16,8 +21,10 @@ public class App {
 
   public static void main(String[] args) throws InvalidDataException {
 
-    AddressServicesImpl a = new AddressServicesImpl();
-    System.out.println(a.getAddressByPostalCode("352000"));
+    StaffServicesImpl s = new StaffServicesImpl();
+    CustomerServicesImpl c = new CustomerServicesImpl();
+    StoreServicesImpl ss=new StoreServicesImpl();
+    System.out.println(c.getCustomerById(1));
 
   }
 }

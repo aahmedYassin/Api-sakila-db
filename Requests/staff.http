@@ -1,0 +1,35 @@
+
+
+
+POST http://localhost:9091/SakilaApplication/ws/staff HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getStaffById>
+           <staffId>1</staffId>
+         </jets:getStaffById>
+    </soap:Body>
+</soap:Envelope>
+
+
+###
+
+
+
+POST http://localhost:9091/SakilaApplication/ws/staff HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getStaffByName>
+           <staffName>Jon</staffName>
+         </jets:getStaffByName>
+    </soap:Body>
+</soap:Envelope>
+
+

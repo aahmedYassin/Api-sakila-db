@@ -30,10 +30,21 @@
         implementation="gov.iti.jets.servcies.impls.CountryServicesImpl"
         url-pattern="/ws/country" />
 
+
     <endpoint
-        name="AdressServicesImpl"
-        implementation="gov.iti.jets.servcies.impls.AddressServicesImpl"
-        url-pattern="/ws/address" />
+        name="CustomerServicesImpl"
+        implementation="gov.iti.jets.servcies.impls.CustomerServicesImpl"
+        url-pattern="/ws/customer" />
+
+    <endpoint
+        name="StaffServicesImpl"
+        implementation="gov.iti.jets.servcies.impls.StaffServicesImpl"
+        url-pattern="/ws/staff" />
+
+    <endpoint
+        name="StoreServicesImpl"
+        implementation="gov.iti.jets.servcies.impls.StoreServicesImpl"
+        url-pattern="/ws/store" />
 
 
 </endpoints>

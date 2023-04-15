@@ -1,0 +1,16 @@
+
+
+
+POST http://localhost:9091/SakilaApplication/ws/store HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getStoreById>
+           <storeId>1</storeId>
+         </jets:getStoreById>
+    </soap:Body>
+</soap:Envelope>
+
