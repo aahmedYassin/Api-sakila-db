@@ -22,6 +22,9 @@ it build recently using Soap
  - actor
  - film
  - category
+ - address
+ - city
+ - country
 
 ## Run with Maven
 
