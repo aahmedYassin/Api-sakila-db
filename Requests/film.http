@@ -1,0 +1,76 @@
+
+
+POST http://localhost:9091/SakilaApplication/ws/film HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getFilmById>
+           <filmId>1</filmId>
+         </jets:getFilmById>
+    </soap:Body>
+</soap:Envelope>
+
+###
+POST http://localhost:9091/SakilaApplication/ws/film HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getAllFilms></jets:getAllFilms>
+    </soap:Body>
+</soap:Envelope>
+
+###
+
+POST http://localhost:9091/SakilaApplication/ws/film HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getFilmByLength>
+          <filmLength>64</filmLength>
+        </jets:getFilmByLength>
+    </soap:Body>
+</soap:Envelope>
+
+
+
+###
+
+POST http://localhost:9091/SakilaApplication/ws/film HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getFilmCategoryById>
+          <filmId>1</filmId>
+        </jets:getFilmCategoryById>
+    </soap:Body>
+</soap:Envelope>
+
+
+
+###
+
+POST http://localhost:9091/SakilaApplication/ws/film HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:geFilmActorsById>
+          <filmId>1</filmId>
+        </jets:geFilmActorsById>
+    </soap:Body>
+</soap:Envelope>
+

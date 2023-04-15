@@ -77,6 +77,16 @@
             <xs:element name="return" type="tns:actorDto" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
+    <xs:complexType name="getActorByFirstName">
+        <xs:sequence>
+            <xs:element name="actorFirstName" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getActorByFirstNameResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:actorDto" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
     <xs:complexType name="updateActorById">
         <xs:sequence>
             <xs:element name="actorId" type="xs:int" />
@@ -84,16 +94,6 @@
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="updateActorByIdResponse">
-        <xs:sequence>
-            <xs:element name="return" type="tns:actorDto" minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="getActorByFirstName">
-        <xs:sequence>
-            <xs:element name="actorFirstName" type="xs:string" minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    <xs:complexType name="getActorByFirstNameResponse">
         <xs:sequence>
             <xs:element name="return" type="tns:actorDto" minOccurs="0" />
         </xs:sequence>

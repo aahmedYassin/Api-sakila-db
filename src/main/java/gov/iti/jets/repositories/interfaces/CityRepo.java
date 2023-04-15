@@ -9,6 +9,12 @@ public interface CityRepo {
 
     public City getCityById(int id);
 
-   
+    public City getCityByName(String name);
+
+    public ArrayList<City> getAllCities();
+
+    public ArrayList<Address> getCityAddresses(int id);
+
+    public Country getCityCountryById(int id);
 
 }

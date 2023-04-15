@@ -1,0 +1,89 @@
+
+
+
+POST http://localhost:9091/SakilaApplication/ws/city HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getCityById>
+           <cityId>1</cityId>
+         </jets:getCityById>
+    </soap:Body>
+</soap:Envelope>
+
+
+###
+
+
+
+POST http://localhost:9091/SakilaApplication/ws/city HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getCityByName>
+           <cityName>Abha</cityName>
+         </jets:getCityByName>
+    </soap:Body>
+</soap:Envelope>
+
+
+
+
+###
+
+
+
+POST http://localhost:9091/SakilaApplication/ws/city HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getAllCities>
+         </jets:getAllCities>
+    </soap:Body>
+</soap:Envelope>
+
+
+###
+
+
+
+POST http://localhost:9091/SakilaApplication/ws/city HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getCityAddresses>
+           <cityId>300</cityId>
+         </jets:getCityAddresses>
+    </soap:Body>
+</soap:Envelope>
+
+
+
+###
+
+
+
+POST http://localhost:9091/SakilaApplication/ws/city HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getCityCountryById>
+           <cityId>1</cityId>
+         </jets:getCityCountryById>
+    </soap:Body>
+</soap:Envelope>

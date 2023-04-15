@@ -1,0 +1,91 @@
+
+
+POST http://localhost:9091/SakilaApplication/ws/category HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getCategoryById>
+           <categoryId>1</categoryId>
+         </jets:getCategoryById>
+    </soap:Body>
+</soap:Envelope>
+
+###
+POST http://localhost:9091/SakilaApplication/ws/category HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getAllCategories></jets:getAllCategories>
+    </soap:Body>
+</soap:Envelope>
+
+
+
+###
+POST http://localhost:9091/SakilaApplication/ws/category HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:getCategoryFilmsById>
+           <categoryId>10</categoryId>
+         </jets:getCategoryFilmsById>
+    </soap:Body>
+</soap:Envelope>
+
+
+
+###
+POST http://localhost:9091/SakilaApplication/ws/category HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:updateCategoryById>
+           <categoryId>101</categoryId>
+            <categoryName>footballl</categoryName>
+         </jets:updateCategoryById>
+    </soap:Body>
+</soap:Envelope>
+
+
+###
+POST http://localhost:9091/SakilaApplication/ws/category HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:deleteCategoryById>
+           <categoryId>22</categoryId>
+         </jets:deleteCategoryById>
+    </soap:Body>
+</soap:Envelope>
+
+
+###
+POST http://localhost:9091/SakilaApplication/ws/category HTTP/1.1
+Content-Type: text/xml
+
+<soap:Envelope
+        xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+        xmlns:jets="http://interfaces.servcies.jets.iti.gov/">
+      <soap:Body>
+        <jets:createCategory>
+          <category>
+             <name>cooking</name>
+          </category>
+         </jets:createCategory>
+    </soap:Body>
+</soap:Envelope>

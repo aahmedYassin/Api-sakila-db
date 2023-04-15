@@ -28,4 +28,38 @@ public class AddressServicesImpl implements AddressServices {
 
     }
 
+    @Override
+    public ArrayList<AddressDto> getAddressByPostalCode(String code) throws InvalidDataException {
+        AddressRepoImpl addressRepoImpl = new AddressRepoImpl();
+
+        if (addressRepoImpl.getAddressByPostalCode(code) == null || addressRepoImpl.getAddressByPostalCode(code).size() == 0) {
+
+            throw new InvalidDataException(" postal code  not exist");
+        }
+
+        ArrayList<AddressDto> addressDtos = new ArrayList<>();
+
+        for (int i = 0; i < addressRepoImpl.getAddressByPostalCode(code).size(); i++) {
+            addressDtos.add(AddressMapper.INSTANCE.toDto(addressRepoImpl.getAddressByPostalCode(code).get(i)));
+        }
+        return addressDtos;
+
+    }
+
+    @Override
+    public ArrayList<AddressDto> getAddressByDistrict(String name) throws InvalidDataException {
+        AddressRepoImpl addressRepoImpl = new AddressRepoImpl();
+
+        if (addressRepoImpl.getAddressByDistrict(name) == null || addressRepoImpl.getAddressByDistrict(name).size() == 0) {
+
+            throw new InvalidDataException(" district name  not exist");
+        }
+        ArrayList<AddressDto> addressDtos = new ArrayList<>();
+
+        for (int i = 0; i < addressRepoImpl.getAddressByDistrict(name).size(); i++) {
+            addressDtos.add(AddressMapper.INSTANCE.toDto(addressRepoImpl.getAddressByDistrict(name).get(i)));
+        }
+        return addressDtos;
+    }
+
 }

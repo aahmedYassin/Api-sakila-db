@@ -59,7 +59,7 @@
     </xs:complexType>
     <xs:complexType name="categoryDto">
         <xs:sequence>
-            <xs:element name="categoryId" type="xs:byte" minOccurs="0" />
+            <xs:element name="categoryId" type="xs:short" minOccurs="0" />
             <xs:element name="lastUpdate" type="tns:timestamp" minOccurs="0" />
             <xs:element name="name" type="xs:string" minOccurs="0" />
         </xs:sequence>

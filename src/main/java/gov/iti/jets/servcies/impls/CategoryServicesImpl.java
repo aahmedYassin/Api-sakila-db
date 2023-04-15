@@ -59,4 +59,29 @@ public class CategoryServicesImpl implements CategoryServices {
 
     }
 
+    @Override
+    public CategoryDto updateCategoryById(int id, String name) throws InvalidDataException {
+        CategoryRepoImpl categoryRepoImpl = new CategoryRepoImpl();
+        if (categoryRepoImpl.updateCategoryById(id, name) == null) {
+
+            throw new InvalidDataException(" category id not exist");
+        }
+        return CategoryMapper.INSTANCE.toDto(categoryRepoImpl.updateCategoryById(id, name));
+    }
+
+    @Override
+    public int deleteCategoryById(int id) {
+        CategoryRepoImpl categoryRepoImpl = new CategoryRepoImpl();
+
+        return categoryRepoImpl.deleteCategoryById(id);
+    }
+
+    @Override
+    public CategoryDto createCategory(CategoryDto categoryDto) {
+        CategoryRepoImpl categoryRepoImpl = new CategoryRepoImpl();
+        categoryDto.setLastUpdate(new Timestamp(System.currentTimeMillis()));
+        categoryRepoImpl.createCategory(CategoryMapper.INSTANCE.toEntity(categoryDto));
+        return categoryDto;
+    }
+
 }

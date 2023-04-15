@@ -27,5 +27,32 @@ public class AddressRepoImpl implements AddressRepo {
         }
     }
 
+    @Override
+    public ArrayList<Address> getAddressByPostalCode(String postalCode) {
+
+        try {
+            Query query = EntityManagerSingleton.getEntityManager()
+                    .createQuery("select a from Address a where a.postalCode=:postalCode");
+            query.setParameter("postalCode", postalCode);
+            return (ArrayList<Address>) query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
+
+    }
+
+    @Override
+    public ArrayList<Address> getAddressByDistrict(String name) {
+
+        try {
+            Query query = EntityManagerSingleton.getEntityManager()
+                    .createQuery("select a from Address a where a.district=:district");
+            query.setParameter("district", name);
+            return (ArrayList<Address>) query.getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
+
+    }
 
 }

@@ -1,0 +1,100 @@
+<xs:schema xmlns:tns="http://interfaces.servcies.jets.iti.gov/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+    targetNamespace="http://interfaces.servcies.jets.iti.gov/">
+    <xs:element name="InvalidDataException" type="tns:InvalidDataException" />
+    <xs:element name="getAllCities" type="tns:getAllCities" />
+    <xs:element name="getAllCitiesResponse" type="tns:getAllCitiesResponse" />
+    <xs:element name="getCityAddresses" type="tns:getCityAddresses" />
+    <xs:element name="getCityAddressesResponse" type="tns:getCityAddressesResponse" />
+    <xs:element name="getCityById" type="tns:getCityById" />
+    <xs:element name="getCityByIdResponse" type="tns:getCityByIdResponse" />
+    <xs:element name="getCityByName" type="tns:getCityByName" />
+    <xs:element name="getCityByNameResponse" type="tns:getCityByNameResponse" />
+    <xs:element name="getCityCountryById" type="tns:getCityCountryById" />
+    <xs:element name="getCityCountryByIdResponse" type="tns:getCityCountryByIdResponse" />
+    <xs:complexType name="getCityAddresses">
+        <xs:sequence>
+            <xs:element name="cityId" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getCityAddressesResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:addressDto" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="addressDto">
+        <xs:sequence>
+            <xs:element name="address" type="xs:string" minOccurs="0" />
+            <xs:element name="address2" type="xs:string" minOccurs="0" />
+            <xs:element name="addressId" type="xs:short" minOccurs="0" />
+            <xs:element name="city" type="tns:cityDto" minOccurs="0" />
+            <xs:element name="district" type="xs:string" minOccurs="0" />
+            <xs:element name="lastUpdate" type="tns:timestamp" minOccurs="0" />
+            <xs:element name="location" type="xs:base64Binary" minOccurs="0" />
+            <xs:element name="phone" type="xs:string" minOccurs="0" />
+            <xs:element name="postalCode" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="cityDto">
+        <xs:sequence>
+            <xs:element name="city" type="xs:string" minOccurs="0" />
+            <xs:element name="cityId" type="xs:short" minOccurs="0" />
+            <xs:element name="lastUpdate" type="tns:timestamp" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="timestamp">
+        <xs:sequence>
+            <xs:element name="nanos" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="InvalidDataException">
+        <xs:sequence>
+            <xs:element name="message" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getCityByName">
+        <xs:sequence>
+            <xs:element name="cityName" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getCityByNameResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:cityDto" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getCityById">
+        <xs:sequence>
+            <xs:element name="cityId" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getCityByIdResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:cityDto" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getAllCities">
+        <xs:sequence />
+    </xs:complexType>
+    <xs:complexType name="getAllCitiesResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:cityDto" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getCityCountryById">
+        <xs:sequence>
+            <xs:element name="cityId" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getCityCountryByIdResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:countryDto" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="countryDto">
+        <xs:sequence>
+            <xs:element name="country" type="xs:string" minOccurs="0" />
+            <xs:element name="countryId" type="xs:short" minOccurs="0" />
+            <xs:element name="lastUpdate" type="tns:timestamp" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

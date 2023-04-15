@@ -17,7 +17,7 @@ import java.util.*;
 @ToString
 public class CategoryDto {
 
-  private Byte categoryId;
+  private Short categoryId;
   private String name;
   private Timestamp lastUpdate;
 }

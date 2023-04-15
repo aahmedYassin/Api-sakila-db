@@ -21,4 +21,13 @@ public interface CategoryServices {
     @WebMethod
     public ArrayList<FilmDto> getCategoryFilmsById(@WebParam(name = "categoryId") int id) throws InvalidDataException;
 
+    @WebMethod
+    public CategoryDto updateCategoryById(@WebParam(name = "categoryId") int id, @WebParam(name = "categoryName") String name) throws InvalidDataException;
+
+    @WebMethod
+
+    public int deleteCategoryById(@WebParam(name = "categoryId") int id);
+
+    @WebMethod
+    public CategoryDto createCategory(@WebParam(name = "category") CategoryDto categoryDto);
 }

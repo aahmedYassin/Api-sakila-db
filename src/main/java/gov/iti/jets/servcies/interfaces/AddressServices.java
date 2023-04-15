@@ -15,6 +15,9 @@ public interface AddressServices {
     @WebMethod
     public AddressDto getAddressById(@WebParam(name = "addressId") int id) throws InvalidDataException;
 
-   
+    @WebMethod
+    public ArrayList<AddressDto> getAddressByPostalCode(@WebParam(name = "postalCode") String code) throws InvalidDataException;
 
+    @WebMethod
+    public ArrayList<AddressDto> getAddressByDistrict(@WebParam(name = "district") String name) throws InvalidDataException;
 }

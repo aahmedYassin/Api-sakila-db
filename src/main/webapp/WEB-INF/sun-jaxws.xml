@@ -25,12 +25,12 @@
         implementation="gov.iti.jets.servcies.impls.CityServicesImpl"
         url-pattern="/ws/city" />
 
-        <endpoint
+    <endpoint
         name="CountryServicesImpl"
         implementation="gov.iti.jets.servcies.impls.CountryServicesImpl"
         url-pattern="/ws/country" />
 
-        <endpoint
+    <endpoint
         name="AdressServicesImpl"
         implementation="gov.iti.jets.servcies.impls.AddressServicesImpl"
         url-pattern="/ws/address" />

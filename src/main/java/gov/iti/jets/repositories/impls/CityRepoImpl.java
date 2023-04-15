@@ -27,5 +27,54 @@ public class CityRepoImpl implements CityRepo {
         }
     }
 
+    @Override
+    public City getCityByName(String name) {
+        try {
+            Query query = EntityManagerSingleton.getEntityManager()
+                    .createQuery("select c from City c where c.city=:city");
+            query.setParameter("city", name);
+            return (City) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public ArrayList<City> getAllCities() {
+        Query query = EntityManagerSingleton.getEntityManager().createQuery("select c from City c");
+        return (ArrayList<City>) query.getResultList();
+    }
+
+    @Override
+    public ArrayList<Address> getCityAddresses(int id) {
+
+        City city = getCityById(id);
+        if (city == null) {
+
+            return null;
+        }
+
+        Set<Address> address = city.getAddresses();
+        List<Address> addressList = new ArrayList<>(address);
+        ArrayList<Address> cityAddress = new ArrayList<>();
+        for (int i = 0; i < addressList.size(); i++) {
+            cityAddress.add(addressList.get(i));
+        }
+        return cityAddress;
+
+    }
+
+    @Override
+    public Country getCityCountryById(int id) {
+
+        City city = getCityById(id);
+        if (city == null) {
+
+            return null;
+        }
+
+        return city.getCountry();
+
+    }
 
 }
