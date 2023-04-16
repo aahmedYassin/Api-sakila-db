@@ -28,6 +28,9 @@ it build recently using Soap
  - address
  - city
  - country
+ - staff
+ - customer
+ - store
 
 ## Run with Maven
 
