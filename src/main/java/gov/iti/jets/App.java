@@ -21,10 +21,8 @@ public class App {
 
   public static void main(String[] args) throws InvalidDataException {
 
-    StaffServicesImpl s = new StaffServicesImpl();
-    CustomerServicesImpl c = new CustomerServicesImpl();
-    StoreServicesImpl ss=new StoreServicesImpl();
-    System.out.println(c.getCustomerById(1));
+    AddressServicesImpl a=new AddressServicesImpl();
+    System.out.println(a.getAddressById(1));
 
   }
 }

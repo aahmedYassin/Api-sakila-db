@@ -46,5 +46,9 @@
         implementation="gov.iti.jets.servcies.impls.StoreServicesImpl"
         url-pattern="/ws/store" />
 
+    <endpoint
+        name="AddressServicesImpl"
+        implementation="gov.iti.jets.servcies.impls.AddressServicesImpl"
+        url-pattern="/ws/address" />
 
 </endpoints>
