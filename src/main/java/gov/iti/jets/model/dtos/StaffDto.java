@@ -18,11 +18,9 @@ import lombok.ToString;
 @ToString
 public class StaffDto {
     private short staffId;
-  //  private StoreDto store;
     private AddressDto address;
     private String firstName;
     private String lastName;
- //   private byte[] picture;
     private String email;
     private boolean active;
     private String username;

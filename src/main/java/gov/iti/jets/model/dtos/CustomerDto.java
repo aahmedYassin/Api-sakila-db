@@ -18,7 +18,6 @@ import lombok.ToString;
 @ToString
 public class CustomerDto {
     private Short customerId;
-  //  private StoreDto store;
     private AddressDto address;
     private String firstName;
     private String lastName;

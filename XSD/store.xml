@@ -1,0 +1,103 @@
+<xs:schema xmlns:tns="http://interfaces.servcies.jets.iti.gov/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+    targetNamespace="http://interfaces.servcies.jets.iti.gov/">
+    <xs:element name="InvalidDataException" type="tns:InvalidDataException" />
+    <xs:element name="getStoreById" type="tns:getStoreById" />
+    <xs:element name="getStoreByIdResponse" type="tns:getStoreByIdResponse" />
+    <xs:element name="getStoreCustomer" type="tns:getStoreCustomer" />
+    <xs:element name="getStoreCustomerResponse" type="tns:getStoreCustomerResponse" />
+    <xs:element name="getStoreStaff" type="tns:getStoreStaff" />
+    <xs:element name="getStoreStaffResponse" type="tns:getStoreStaffResponse" />
+    <xs:complexType name="getStoreById">
+        <xs:sequence>
+            <xs:element name="storeId" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getStoreByIdResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:storeDto" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="storeDto">
+        <xs:sequence>
+            <xs:element name="address" type="tns:addressDto" minOccurs="0" />
+            <xs:element name="lastUpdate" type="tns:timestamp" minOccurs="0" />
+            <xs:element name="storeId" type="xs:short" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="addressDto">
+        <xs:sequence>
+            <xs:element name="address" type="xs:string" minOccurs="0" />
+            <xs:element name="address2" type="xs:string" minOccurs="0" />
+            <xs:element name="addressId" type="xs:short" minOccurs="0" />
+            <xs:element name="city" type="tns:cityDto" minOccurs="0" />
+            <xs:element name="district" type="xs:string" minOccurs="0" />
+            <xs:element name="lastUpdate" type="tns:timestamp" minOccurs="0" />
+            <xs:element name="location" type="xs:base64Binary" minOccurs="0" />
+            <xs:element name="phone" type="xs:string" minOccurs="0" />
+            <xs:element name="postalCode" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="cityDto">
+        <xs:sequence>
+            <xs:element name="city" type="xs:string" minOccurs="0" />
+            <xs:element name="cityId" type="xs:short" minOccurs="0" />
+            <xs:element name="lastUpdate" type="tns:timestamp" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="timestamp">
+        <xs:sequence>
+            <xs:element name="nanos" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="InvalidDataException">
+        <xs:sequence>
+            <xs:element name="message" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getStoreStaff">
+        <xs:sequence>
+            <xs:element name="storeId" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getStoreStaffResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:staffDto" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="staffDto">
+        <xs:sequence>
+            <xs:element name="active" type="xs:boolean" />
+            <xs:element name="address" type="tns:addressDto" minOccurs="0" />
+            <xs:element name="email" type="xs:string" minOccurs="0" />
+            <xs:element name="firstName" type="xs:string" minOccurs="0" />
+            <xs:element name="lastName" type="xs:string" minOccurs="0" />
+            <xs:element name="lastUpdate" type="tns:timestamp" minOccurs="0" />
+            <xs:element name="password" type="xs:string" minOccurs="0" />
+            <xs:element name="staffId" type="xs:short" />
+            <xs:element name="username" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getStoreCustomer">
+        <xs:sequence>
+            <xs:element name="storeId" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getStoreCustomerResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:customerDto" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="customerDto">
+        <xs:sequence>
+            <xs:element name="active" type="xs:boolean" />
+            <xs:element name="address" type="tns:addressDto" minOccurs="0" />
+            <xs:element name="createDate" type="tns:timestamp" minOccurs="0" />
+            <xs:element name="customerId" type="xs:short" minOccurs="0" />
+            <xs:element name="email" type="xs:string" minOccurs="0" />
+            <xs:element name="firstName" type="xs:string" minOccurs="0" />
+            <xs:element name="lastName" type="xs:string" minOccurs="0" />
+            <xs:element name="lastUpdate" type="tns:timestamp" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

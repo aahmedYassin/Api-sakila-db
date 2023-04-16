@@ -27,4 +27,43 @@ public class StoreServicesImpl implements StoreServices {
         return StoreMapper.INSTANCE.toDto(storeRepoImpl.getStoreById(id));
     }
 
+    @Override
+    public ArrayList<StaffDto> getStoreStaff(int id) throws InvalidDataException {
+        StoreRepoImpl storeRepoImpl = new StoreRepoImpl();
+
+        if (storeRepoImpl.getStoreStaff(id) == null) {
+
+            throw new InvalidDataException(" store id not exist");
+        }
+
+        ArrayList<Staff> staff = storeRepoImpl.getStoreStaff(id);
+        ArrayList<StaffDto> staffDto = new ArrayList<>();
+        for (int i = 0; i < staff.size(); i++) {
+            staffDto.add(StaffMapper.INSTANCE.toDto(staff.get(i)));
+        }
+
+        return staffDto;
+
+    }
+
+    @Override
+    public ArrayList<CustomerDto> getStoreCustomer(int id) throws InvalidDataException {
+
+        StoreRepoImpl storeRepoImpl = new StoreRepoImpl();
+
+        if (storeRepoImpl.getStoreCustomer(id) == null) {
+
+            throw new InvalidDataException(" store id not exist");
+        }
+
+        ArrayList<Customer> customer = storeRepoImpl.getStoreCustomer(id);
+        ArrayList<CustomerDto> CustomerDto = new ArrayList<>();
+        for (int i = 0; i < customer.size(); i++) {
+            CustomerDto.add(CustomerMapper.INSTANCE.toDto(customer.get(i)));
+        }
+
+        return CustomerDto;
+
+    }
+
 }

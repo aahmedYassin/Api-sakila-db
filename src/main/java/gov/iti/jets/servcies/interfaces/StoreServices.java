@@ -15,6 +15,10 @@ public interface StoreServices {
     @WebMethod
     public StoreDto getStoreById(@WebParam(name = "storeId") int id) throws InvalidDataException;
 
+    @WebMethod
+    public ArrayList<StaffDto> getStoreStaff(@WebParam(name = "storeId") int id) throws InvalidDataException;
 
+    @WebMethod
+    public ArrayList<CustomerDto> getStoreCustomer(@WebParam(name = "storeId") int id) throws InvalidDataException;
 
 }
